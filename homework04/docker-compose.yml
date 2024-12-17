@@ -1,0 +1,19 @@
+services:
+  postgres:
+    image: postgres:latest
+    env_file:
+      - .env
+    ports:
+      - "9003:5432"
+
+  db-api:
+    image: db-api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - postgres
+    ports:
+      - "8080:9999"
+    env_file:
+      - .env
