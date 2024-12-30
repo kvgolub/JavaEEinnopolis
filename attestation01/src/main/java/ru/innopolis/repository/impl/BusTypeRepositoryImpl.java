@@ -21,3 +21,4 @@ public class BusTypeRepositoryImpl implements BusTypeRepository {
         jdbcTemplate.update(UPDATE_AND_DELETE_BUS_TYPE, nameTypeOld, nameTypeNew, nameTypeDelete);
     }
 }
+

@@ -17,3 +17,4 @@ public class Schedule {
     private Integer busId;
     private Integer driverId;
 }
+

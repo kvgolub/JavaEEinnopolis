@@ -57,3 +57,4 @@ public class BusRepositoryImpl implements BusRepository {
         return new Bus(id, type, model, regNumber, passengerCapacity, price);
     };
 }
+

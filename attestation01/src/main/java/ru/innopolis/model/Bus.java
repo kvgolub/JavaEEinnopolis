@@ -17,3 +17,4 @@ public class Bus {
     private Integer passengerCapacity;
     private Float price;
 }
+

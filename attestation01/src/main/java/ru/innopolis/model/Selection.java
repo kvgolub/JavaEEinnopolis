@@ -65,3 +65,4 @@ public class Selection {
         return "Schedule(routeDate=" + routeDate + ", nameStopStart=" + nameStopStart + ", nameStopEnd=" + nameStopEnd + ", passengerFlow=" + passengerFlow + ", model=" + model + ", nameType=" + nameType + ", passengerCapacity=" + passengerCapacity + ", driverNs=" + driverNs + ")";
     }
 }
+
