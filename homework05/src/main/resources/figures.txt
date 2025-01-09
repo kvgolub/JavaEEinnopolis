@@ -1,0 +1,4 @@
+Rectangle,5,7
+Ellipse,6.5,7.8
+Square,9,moveX/Y,4,6
+Circle,8.5,moveX/Y,8,12

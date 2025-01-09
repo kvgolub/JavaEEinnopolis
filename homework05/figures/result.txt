@@ -1,0 +1,17 @@
+Square side A = 5
+Square Side B = 7
+Square perimeter = 24
+
+Ellipse Radius A = 6.5
+Ellipse Radius B = 7.8
+Ellipse perimeter = 66
+
+Square Side A = 9
+Square perimeter = 36
+Square: start coordinate X = 0, start coordinate Y = 0
+Square: new coordinate X = 4, new coordinate Y = 6
+
+Circle Radius A = 8.5
+Circle perimeter = 53
+Circle: start coordinate X = 0, start coordinate Y = 0
+Circle: new coordinate X = 8, new coordinate Y = 12
