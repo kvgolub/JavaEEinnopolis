@@ -13,3 +13,4 @@ public class BusType {
     private Integer id;
     private String nameType;
 }
+

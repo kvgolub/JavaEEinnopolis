@@ -9,3 +9,4 @@ public interface BusRepository {
     List<Bus> findMostExpensive();
     void updateBusType(String nameType, String model);
 }
+

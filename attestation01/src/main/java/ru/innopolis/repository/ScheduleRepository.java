@@ -8,3 +8,4 @@ public interface ScheduleRepository {
     void updateBusOnDate(String model, String surname, String routeDate);
     void deleteBusFromSchedule(String model);
 }
+

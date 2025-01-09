@@ -12,3 +12,4 @@ public class JdbcTemplateConfig {
         return new JdbcTemplate(driver);
     }
 }
+

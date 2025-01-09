@@ -69,3 +69,4 @@ public class ScheduleRepositoryImpl implements ScheduleRepository {
         return new Selection().getAllScheduleDetail(routeDate, nameStopStart, nameStopEnd, passengerFlow, model, nameType, passengerCapacity, driverNs);
     };
 }
+

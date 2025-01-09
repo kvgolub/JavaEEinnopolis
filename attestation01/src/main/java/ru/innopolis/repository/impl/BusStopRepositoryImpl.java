@@ -21,3 +21,4 @@ public class BusStopRepositoryImpl implements BusStopRepository {
 
     private static final RowMapper<Integer> busStopRowMapper = (row, rowNumber) -> (Integer) row.getInt("count");
 }
+

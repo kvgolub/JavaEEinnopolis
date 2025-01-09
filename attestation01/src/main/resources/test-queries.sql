@@ -124,3 +124,4 @@ WHERE nameType = 'с гармошкой';
 SELECT
     count(*)
 FROM busStop;
+

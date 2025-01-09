@@ -13,3 +13,4 @@ public class BusStop {
     private Integer id;
     private String nameStop;
 }
+

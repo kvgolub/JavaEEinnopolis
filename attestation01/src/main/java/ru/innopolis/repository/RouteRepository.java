@@ -9,3 +9,4 @@ public interface RouteRepository {
     List<String> findLeastQuantityStation();
     List<String> findLargePassengerFlowAndEffectBus(String nameType);
 }
+
