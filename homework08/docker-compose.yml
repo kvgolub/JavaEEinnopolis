@@ -1,0 +1,9 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: app
+    volumes:
+      - ./strings/result.txt:/home/strings/result.txt
+    entrypoint: ["java", "-jar", "/home/strings/target/homework08-1.0-SNAPSHOT.jar"]
