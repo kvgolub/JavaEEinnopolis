@@ -1,0 +1,22 @@
+services:
+
+  db:
+    image: postgres:latest
+    container_name: bus_station
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: bus_station
+    ports:
+      - "5433:5432"
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: app
+    depends_on:
+      - db
+    volumes:
+      - ./result/result.txt:/home/bus_station/result/result.txt
+    entrypoint: ./docker-entrypoint.sh

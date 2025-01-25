@@ -1,0 +1,225 @@
+=====Запросы для таблицы Автобусы:======================================================
+-----Создание новой записи Автобуса "VolgaBus":-----------------------------------------
+Выполнено
+
+-----Найти запись об Автобусе по Идентификатору id=4:-----------------------------------
+Bus(id=4, type=1, model=ПАЗ, regNumber=Е404ок, passengerCapacity=25, price=1003000.0)
+----------------------------------------------------------------------------------------
+
+-----Найти все записи об Автобусах:-----------------------------------------------------
+Bus(id=1, type=1, model=Газель, regNumber=а001аа, passengerCapacity=20, price=1000000.0)
+Bus(id=2, type=2, model=ЛиАЗ, regNumber=в002аа, passengerCapacity=50, price=1500000.5)
+Bus(id=3, type=4, model=Икарус, regNumber=м055ма, passengerCapacity=200, price=3000000.0)
+Bus(id=4, type=1, model=ПАЗ, regNumber=Е404ок, passengerCapacity=25, price=1003000.0)
+Bus(id=5, type=5, model=ЛАЗ, regNumber=р041ар, passengerCapacity=100, price=2350000.8)
+Bus(id=6, type=5, model=SCANIA, regNumber=с330ос, passengerCapacity=75, price=5000000.0)
+Bus(id=7, type=2, model=Мерседес, regNumber=у658тп, passengerCapacity=120, price=1000000.0)
+Bus(id=8, type=6, model=ЛиАЗ, regNumber=в666ий, passengerCapacity=66, price=666666.66)
+Bus(id=9, type=3, model=Камаз, regNumber=р985ав, passengerCapacity=140, price=4000000.0)
+Bus(id=10, type=7, model=FANTASTIC, regNumber=о000оо, passengerCapacity=10000000, price=Infinity)
+Bus(id=11, type=2, model=VolgaBus, regNumber=т065рв, passengerCapacity=50, price=5000005.55)
+----------------------------------------------------------------------------------------
+
+-----Изменение записи об Автобусе по Идентификатору id=4:-------------------------------
+Выполнено
+
+-----Найти "У каких автобусов вместимость от 100 пассажиров и больше":------------------
+Bus(id=3, type=4, model=Икарус, regNumber=м055ма, passengerCapacity=200, price=3000000.0)
+Bus(id=5, type=5, model=ЛАЗ, regNumber=р041ар, passengerCapacity=100, price=2350000.8)
+Bus(id=7, type=2, model=Мерседес, regNumber=у658тп, passengerCapacity=120, price=1000000.0)
+Bus(id=9, type=3, model=Камаз, regNumber=р985ав, passengerCapacity=140, price=4000000.0)
+Bus(id=10, type=7, model=FANTASTIC, regNumber=о000оо, passengerCapacity=10000000, price=Infinity)
+----------------------------------------------------------------------------------------
+
+-----Найти "Какой автобус самый дорогой":-----------------------------------------------
+Bus(id=10, type=7, model=FANTASTIC, regNumber=о000оо, passengerCapacity=10000000, price=Infinity)
+----------------------------------------------------------------------------------------
+
+
+=====Запросы для таблицы Водители:======================================================
+-----Создание новой записи Водители "Василий Васичкин":---------------------------------
+Выполнено
+
+-----Найти запись о Водителе по Идентификатору id=2:------------------------------------
+Driver(id=2, surname=Петров, name=Петр, age=35)
+----------------------------------------------------------------------------------------
+
+-----Найти все записи о Водителях:------------------------------------------------------
+Driver(id=1, surname=Иванов, name=Иван, age=50)
+Driver(id=2, surname=Петров, name=Петр, age=35)
+Driver(id=3, surname=Пупкин, name=Вася, age=22)
+Driver(id=4, surname=Сидоров, name=Сидр, age=65)
+Driver(id=5, surname=Новгородов-Великий, name=Козьма, age=30)
+Driver(id=6, surname=Бабаягодков, name=Тимофей, age=45)
+Driver(id=7, surname=Васичкин, name=Василий, age=39)
+----------------------------------------------------------------------------------------
+
+-----Изменение записи о Водителе по Идентификатору id=6:--------------------------------
+Выполнено
+
+-----Выборка "На каких автобусах работает водитель Петров":-----------------------------
+Driver(surname=Петров, model=SCANIA, regNumber=с330ос)
+Driver(surname=Петров, model=FANTASTIC, regNumber=о000оо)
+Driver(surname=Петров, model=Камаз, regNumber=р985ав)
+----------------------------------------------------------------------------------------
+
+
+=====Запросы для таблицы Маршруты:======================================================
+-----Создание новой записи Маршруты "300А":---------------------------------------------
+Выполнено
+
+-----Найти запись о Маршруте по Идентификатору id=8:------------------------------------
+Route(id=8, number=12, startStation=9, endStation=3, quantityStation=15, passengerFlow=400)
+----------------------------------------------------------------------------------------
+
+-----Найти все записи о Маршрутах:------------------------------------------------------
+Route(id=1, number=1A, startStation=1, endStation=5, quantityStation=10, passengerFlow=500)
+Route(id=2, number=15, startStation=2, endStation=6, quantityStation=20, passengerFlow=1000)
+Route(id=3, number=2, startStation=3, endStation=4, quantityStation=15, passengerFlow=200)
+Route(id=4, number=100, startStation=7, endStation=8, quantityStation=10, passengerFlow=1250)
+Route(id=5, number=5, startStation=9, endStation=10, quantityStation=5, passengerFlow=350)
+Route(id=6, number=2A, startStation=1, endStation=4, quantityStation=12, passengerFlow=400)
+Route(id=7, number=11, startStation=4, endStation=10, quantityStation=16, passengerFlow=420)
+Route(id=8, number=12, startStation=9, endStation=3, quantityStation=15, passengerFlow=400)
+Route(id=9, number=105, startStation=7, endStation=4, quantityStation=10, passengerFlow=800)
+Route(id=10, number=10, startStation=8, endStation=2, quantityStation=20, passengerFlow=750)
+Route(id=11, number=300А, startStation=4, endStation=8, quantityStation=14, passengerFlow=650)
+----------------------------------------------------------------------------------------
+
+-----Изменение записи о Маршруте по Идентификатору id=6:--------------------------------
+Выполнено
+
+-----Выборка "Какие маршруты начинаются/заканчиваются на Ж/д вокзале":------------------
+Route(nameStop=Ж/д вокзал, number=2)
+Route(nameStop=Ж/д вокзал, number=2A)
+Route(nameStop=Ж/д вокзал, number=11)
+Route(nameStop=Ж/д вокзал, number=105)
+Route(nameStop=Ж/д вокзал, number=300А)
+----------------------------------------------------------------------------------------
+
+-----Выборка "На каком маршруте меньше всего остановок":--------------------------------
+Route(number=5, quantityStation=5)
+----------------------------------------------------------------------------------------
+
+-----Выборка "На каком маршруте с самым большим пассажиропотоком будет эффективен самый
+вместительный автобус и сколько ему понадобится рейсов":----------------
+Route(number=100, passengerFlow=1250, model=Икарус, passengerCapacity=200, countRoutes=7.0)
+----------------------------------------------------------------------------------------
+
+
+=====Запросы для таблицы Расписание:====================================================
+-----Создание новой записи Расписание "20.12.2024 10:20":-------------------------------
+Выполнено
+
+-----Найти запись о Расписании по Идентификатору id=7:----------------------------------
+Schedule(id=7, routeDate=2024-12-18, routeId=7, busId=9, driverId=5)
+----------------------------------------------------------------------------------------
+
+-----Найти все записи о Расписаниях:----------------------------------------------------
+Schedule(id=1, routeDate=2024-12-15, routeId=1, busId=6, driverId=2)
+Schedule(id=2, routeDate=2024-12-15, routeId=2, busId=5, driverId=1)
+Schedule(id=3, routeDate=2024-12-15, routeId=5, busId=1, driverId=6)
+Schedule(id=4, routeDate=2024-12-16, routeId=4, busId=10, driverId=2)
+Schedule(id=5, routeDate=2024-12-16, routeId=3, busId=8, driverId=3)
+Schedule(id=6, routeDate=2024-12-17, routeId=6, busId=4, driverId=1)
+Schedule(id=7, routeDate=2024-12-18, routeId=7, busId=9, driverId=5)
+Schedule(id=8, routeDate=2024-12-18, routeId=1, busId=7, driverId=4)
+Schedule(id=9, routeDate=2024-12-18, routeId=9, busId=2, driverId=5)
+Schedule(id=10, routeDate=2024-12-18, routeId=4, busId=9, driverId=2)
+Schedule(id=11, routeDate=2024-12-19, routeId=10, busId=3, driverId=1)
+Schedule(id=12, routeDate=2024-12-19, routeId=8, busId=3, driverId=4)
+Schedule(id=13, routeDate=2024-12-20, routeId=5, busId=7, driverId=3)
+----------------------------------------------------------------------------------------
+
+-----Изменение записи о Расписании по Идентификатору id=3:------------------------------
+Выполнено
+
+-----Выборка "На каком маршруте меньше всего остановок":--------------------------------
+Schedule(routeDate=2024-12-15, nameStopStart=Аэропорт, nameStopEnd=Центральная, passengerFlow=500, model=SCANIA, nameType=междугородний, passengerCapacity=75, driverNs=Петр Петров)
+Schedule(routeDate=2024-12-15, nameStopStart=ул.Парковая, nameStopEnd=Больничная, passengerFlow=1000, model=ЛАЗ, nameType=междугородний, passengerCapacity=100, driverNs=Иван Иванов)
+Schedule(routeDate=2024-12-16, nameStopStart=Заводская, nameStopEnd=Приозёрная, passengerFlow=1250, model=FANTASTIC, nameType=несуществующий, passengerCapacity=10000000, driverNs=Петр Петров)
+Schedule(routeDate=2024-12-16, nameStopStart=Фабрика мягких игрушек им.Мишутки Поролонова, nameStopEnd=Ж/д вокзал, passengerFlow=200, model=ЛиАЗ, nameType=комфортабельный, passengerCapacity=66, driverNs=Вася Пупкин)
+Schedule(routeDate=2024-12-17, nameStopStart=Аэропорт, nameStopEnd=Ж/д вокзал, passengerFlow=400, model=ПАЗ-2, nameType=микроавтобус, passengerCapacity=50, driverNs=Иван Иванов)
+Schedule(routeDate=2024-12-18, nameStopStart=Ж/д вокзал, nameStopEnd=Гимназия №1, passengerFlow=420, model=Камаз, nameType=низкопольный, passengerCapacity=140, driverNs=Козьма Новгородов-Великий)
+Schedule(routeDate=2024-12-18, nameStopStart=Аэропорт, nameStopEnd=Центральная, passengerFlow=500, model=Мерседес, nameType=городской, passengerCapacity=120, driverNs=Сидр Сидоров)
+Schedule(routeDate=2024-12-18, nameStopStart=Заводская, nameStopEnd=Ж/д вокзал, passengerFlow=800, model=ЛиАЗ, nameType=городской, passengerCapacity=50, driverNs=Козьма Новгородов-Великий)
+Schedule(routeDate=2024-12-18, nameStopStart=Заводская, nameStopEnd=Приозёрная, passengerFlow=1250, model=Камаз, nameType=низкопольный, passengerCapacity=140, driverNs=Петр Петров)
+Schedule(routeDate=2024-12-19, nameStopStart=Приозёрная, nameStopEnd=ул.Парковая, passengerFlow=750, model=Икарус, nameType=с гармошкой, passengerCapacity=200, driverNs=Иван Иванов)
+Schedule(routeDate=2024-12-19, nameStopStart=Деревня Кукуево, nameStopEnd=Фабрика мягких игрушек им.Мишутки Поролонова, passengerFlow=400, model=Икарус, nameType=с гармошкой, passengerCapacity=200, driverNs=Сидр Сидоров)
+Schedule(routeDate=2024-12-20, nameStopStart=Деревня Кукуево, nameStopEnd=Гимназия №1, passengerFlow=350, model=Мерседес, nameType=городской, passengerCapacity=120, driverNs=Вася Пупкин)
+Schedule(routeDate=2024-12-15, nameStopStart=Деревня Кукуево, nameStopEnd=Гимназия №1, passengerFlow=350, model=Газель, nameType=микроавтобус, passengerCapacity=20, driverNs=Тимофей Тимофеев)
+----------------------------------------------------------------------------------------
+
+
+=====Запросы для таблицы Автобусные остановки:==========================================
+-----Создание новой записи Автобусные остановки "Путь Ильича":--------------------------
+Выполнено
+
+-----Найти запись об Автобусной остановке по Идентификатору id=5:-----------------------
+BusStop(id=5, nameStop=Центральная)
+----------------------------------------------------------------------------------------
+
+-----Найти все записи об Автобусных остановках:-----------------------------------------
+BusStop(id=1, nameStop=Аэропорт)
+BusStop(id=2, nameStop=ул.Парковая)
+BusStop(id=3, nameStop=Фабрика мягких игрушек им.Мишутки Поролонова)
+BusStop(id=4, nameStop=Ж/д вокзал)
+BusStop(id=5, nameStop=Центральная)
+BusStop(id=6, nameStop=Больничная)
+BusStop(id=7, nameStop=Заводская)
+BusStop(id=8, nameStop=Приозёрная)
+BusStop(id=9, nameStop=Деревня Кукуево)
+BusStop(id=10, nameStop=Гимназия №1)
+BusStop(id=11, nameStop=Путь Ильича)
+----------------------------------------------------------------------------------------
+
+-----Изменение записи об Автобусной остановке по Идентификатору id=9:-------------------
+Выполнено
+
+-----Показать общее количество начальных и конечных остановок в таблице:----------------
+11
+----------------------------------------------------------------------------------------
+
+
+=====Запросы для таблицы Типы автобуса:=================================================
+-----Создание новой записи Типы автобуса "Скоростной":----------------------------------
+Выполнено
+
+-----Найти запись о Типе автобуса по Идентификатору id=4:-------------------------------
+BusType(id=4, nameType=с гармошкой)
+----------------------------------------------------------------------------------------
+
+-----Найти все записи о Типах автобусов:------------------------------------------------
+BusType(id=1, nameType=микроавтобус)
+BusType(id=2, nameType=городской)
+BusType(id=3, nameType=низкопольный)
+BusType(id=4, nameType=с гармошкой)
+BusType(id=5, nameType=междугородний)
+BusType(id=6, nameType=комфортабельный)
+BusType(id=7, nameType=несуществующий)
+BusType(id=8, nameType=скоростной)
+----------------------------------------------------------------------------------------
+
+-----Изменение записи о Типе автобуса по Идентификатору id=6:---------------------------
+Выполнено
+
+-----Изменение Типа автобуса для записей "с гармошкой" на "низкопольный" в таблице
+Автобусы и удаление Типа автобуса "с гармошкой" из Таблицы Типа автобуса:---------------
+Выполнено
+
+
+=====Удаление выборочных записей таблиц по Идентификатору:==============================
+-----Удаление записи об Автобусе по Идентификатору id=10: Отключено
+-----Удаление записи о Водителе по Идентификатору id=5: Отключено
+-----Удаление записи о Маршруте по Идентификатору id=4: Отключено
+-----Удаление записи о Расписании по Идентификатору id=8: Отключено
+-----Удаление записи об Автобусной остановке по Идентификатору id=2: Отключено
+-----Удаление записи о Типе автобуса по Идентификатору id=7: Отключено
+
+=====Удаление всех записей таблиц:======================================================
+-----Удаление всех записей об Автобусах: Отключено
+-----Удаление всех записей о Водителях: Отключено
+-----Удаление всех записей о Маршрутах: Отключено
+-----Удаление всех записей о Расписаниях: Отключено
+-----Удаление всех записей об Автобусных остановках: Отключено
+-----Удаление всех записей о Типах автобусов: Отключено
