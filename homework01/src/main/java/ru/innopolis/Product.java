@@ -1,4 +1,4 @@
-package org.example;
+package ru.innopolis;
 
 
 import lombok.*;
