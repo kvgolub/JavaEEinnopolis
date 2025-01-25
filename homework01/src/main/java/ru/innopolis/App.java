@@ -1,4 +1,4 @@
-package org.example;
+package ru.innopolis;
 
 
 public class App {
