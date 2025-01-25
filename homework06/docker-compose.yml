@@ -1,0 +1,9 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: app
+    volumes:
+      - ./collections/result.json:/home/collections/result.json
+    entrypoint: ["java", "-jar", "/home/collections/target/homework06-1.0-SNAPSHOT.jar"]
