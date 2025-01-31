@@ -1,0 +1,11 @@
+# Directories
+.gradle/
+gradle/
+target/
+
+# Files
+gradlew.bat
+gradlew
+
+
+
