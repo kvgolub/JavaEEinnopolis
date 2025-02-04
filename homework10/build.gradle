@@ -1,0 +1,53 @@
+plugins {
+    id 'java'
+    id 'org.liquibase.gradle' version '2.2.0'
+    id 'org.springframework.boot' version '3.4.2'
+    id 'org.jetbrains.kotlin.plugin.lombok' version '2.1.10'
+    id 'io.freefair.lombok' version '8.10'
+}
+
+apply plugin: "org.liquibase.gradle"
+apply plugin: 'io.spring.dependency-management'
+
+group = 'ru.innopolis'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+
+    implementation 'org.liquibase:liquibase-core'
+
+    implementation 'io.micrometer:micrometer-registry-prometheus'
+
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+    implementation 'com.mysql:mysql-connector-j'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+liquibase {
+    activities {
+        main {
+            File propsFile = new File("../homework10/liquibase.properties")
+            Properties properties = new Properties()
+            properties.load(new FileInputStream(propsFile))
+//            changelogFile "../homework10/src/main/resources/db/migration/create_tables.sql"
+//            url "jdbc:mysql://localhost:9003/toy_shop"
+//            username "root"
+//            password "mysql"
+        }
+    }
+}
+
+springBoot {
+    buildInfo()
+}
