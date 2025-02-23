@@ -18,7 +18,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 
 @WebMvcTest(StudentsOnCoursesController.class)
-@ContextConfiguration(classes = {StudentsOnCoursesController.class, StudentsOnCoursesService.class, StudentsOnCoursesRepository.class})
+@ContextConfiguration(classes = {StudentsOnCoursesController.class})
 @AutoConfigureMockMvc
 public class StudentsOnCoursesControllerTest {
 

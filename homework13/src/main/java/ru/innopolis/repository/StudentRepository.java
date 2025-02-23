@@ -9,10 +9,10 @@ import java.util.List;
 @Repository
 public interface StudentRepository {
 
-    int createStudent(Student student);
-    List<Student> findByIdStudent(Long id);
+    Student createStudent(Student student);
+    Student findByIdStudent(Long id);
     List<Student> findAllStudents();
-    int updateStudent(Student student);
+    Student updateStudent(Student student);
     int deleteByIdStudent(Long id);
     int deleteAllStudents();
 

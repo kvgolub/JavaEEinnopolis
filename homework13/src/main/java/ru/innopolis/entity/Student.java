@@ -11,7 +11,6 @@ import lombok.*;
 @ToString
 public class Student {
 
-    @NotNull(message = "Идентификатор не может быть NULL")
     private Long id;
 
     @NotNull(message = "Фамилия не может быть NULL")
@@ -35,5 +34,12 @@ public class Student {
     @Email(message = "Некорректный формат электронной почты: ${validatedValue}",
             regexp = "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$")
     private String email;
+
+    public Student(String surname, String name, String patronymic, String email) {
+        this.surname = surname;
+        this.name = name;
+        this.patronymic = patronymic;
+        this.email = email;
+    }
 
 }

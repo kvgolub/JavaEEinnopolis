@@ -18,7 +18,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 
 @WebMvcTest(StudentController.class)
-@ContextConfiguration(classes = {StudentController.class, StudentService.class, StudentRepository.class})
+@ContextConfiguration(classes = {StudentController.class})
 @AutoConfigureMockMvc
 public class StudentControllerTest {
 
@@ -31,7 +31,7 @@ public class StudentControllerTest {
 
     @Test
     void createStudentTest() throws Exception {
-        Mockito.when(studentService.createStudent(student)).thenReturn(true);
+        Mockito.when(studentService.createStudent(student)).thenReturn(student);
 
         mvc.perform(post("/api/v1/student")
                         .contentType("application/json")
@@ -53,14 +53,14 @@ public class StudentControllerTest {
     void findAllStudentsTest() throws Exception {
         Mockito.when(studentService.findAllStudents()).thenReturn(students);
 
-        mvc.perform(get("/api/v1/student/all"))
+        mvc.perform(get("/api/v1/student/list"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$").isNotEmpty());
     }
 
     @Test
     void updateStudentTest() throws Exception {
-        Mockito.when(studentService.updateStudent(1L, studentNew)).thenReturn(true);
+        Mockito.when(studentService.updateStudent(1L, studentNew)).thenReturn(studentNew);
 
         mvc.perform(put("/api/v1/student/1")
                         .contentType("application/json")
@@ -95,7 +95,6 @@ public class StudentControllerTest {
 
     private final String requestStudent = """
                             {
-                            	"id": 1,
                             	"surname": "Сидоров",
                             	"name": "Сидр",
                             	"patronymic": "Сидорович",
