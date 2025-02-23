@@ -19,14 +19,10 @@ public class StudentController {
     private final StudentService studentService;
 
     @PostMapping
-    public ResponseEntity<Boolean> createStudent(@Valid @RequestBody Student request) {
-        boolean studentNew = studentService.createStudent(request);
+    public ResponseEntity<Student> createStudent(@Valid @RequestBody Student studentRequest) {
+        Student studentNew = studentService.createStudent(studentRequest);
 
-        if (studentNew) {
-            return ResponseEntity.status(HttpStatus.CREATED).body(true);
-        } else {
-            return ResponseEntity.status(HttpStatus.CONFLICT).body(false);
-        }
+        return ResponseEntity.status(HttpStatus.CREATED).body(studentNew);
     }
 
     @GetMapping("/{id}")
@@ -35,10 +31,10 @@ public class StudentController {
 
         return student != null
                 ? ResponseEntity.ok().body(student)
-                : ResponseEntity.notFound().build();
+                : ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
     }
 
-    @GetMapping("/all")
+    @GetMapping("/list")
     public ResponseEntity<List<Student>> findAllStudents() {
         List<Student> students = studentService.findAllStudents();
 
@@ -48,24 +44,24 @@ public class StudentController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Boolean> updateStudent(@Valid @PathVariable Long id, @Valid @RequestBody Student request) {
-        boolean studentNew = studentService.updateStudent(id, request);
+    public ResponseEntity<Student> updateStudent(@Valid @PathVariable Long id, @Valid @RequestBody Student studentRequest) {
+        Student studentUpdate = studentService.updateStudent(id, studentRequest);
 
-        if (studentNew) {
-            return ResponseEntity.ok().body(true);
+        if (studentUpdate != null) {
+            return ResponseEntity.ok().body(studentUpdate);
         } else {
-            return ResponseEntity.notFound().build();
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
         }
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Boolean> deleteByIdStudent(@Valid @PathVariable("id") Long studentId) {
-        boolean studentNew = studentService.deleteByIdStudent(studentId);
+        boolean student = studentService.deleteByIdStudent(studentId);
 
-        if (studentNew) {
+        if (student) {
             return ResponseEntity.ok().body(true);
         } else {
-            return ResponseEntity.notFound().build();
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(false);
         }
     }
 

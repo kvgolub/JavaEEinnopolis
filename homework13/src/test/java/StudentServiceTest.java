@@ -5,6 +5,8 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureJdbc;
 import org.springframework.boot.test.context.SpringBootTest;
 import ru.innopolis.App;
 import ru.innopolis.entity.Student;
+import ru.innopolis.repository.StudentRepository;
+import ru.innopolis.repository.impl.StudentRepositoryImpl;
 import ru.innopolis.service.StudentService;
 
 
@@ -22,15 +24,16 @@ public class StudentServiceTest {
     void createNoteTest() {
         var response = studentService.createStudent(student);
 
-        Assertions.assertTrue(response);
+        Assertions.assertEquals(student.getName(), response.getName());
     }
 
     @Order(2)
     @Test
     void findByIdNoteTest() {
-        var response = studentService.findByIdStudent(1L);
+        studentId = studentService.findAllStudents().get(0).getId();
+        var response = studentService.findByIdStudent(studentId);
 
-        Assertions.assertEquals(1L, response.getId());
+        Assertions.assertEquals(studentId, response.getId());
     }
 
     @Order(3)
@@ -44,15 +47,17 @@ public class StudentServiceTest {
     @Order(4)
     @Test
     void updateNoteTest() {
-        var response = studentService.updateStudent(1L, student);
+        studentId = studentService.findAllStudents().get(0).getId();
+        var response = studentService.updateStudent(studentId, studentNew);
 
-        Assertions.assertTrue(response);
+        Assertions.assertEquals(studentNew.getName(), response.getName());
     }
 
     @Order(5)
     @Test
     void deleteByIdNoteTest() {
-        var response = studentService.deleteByIdStudent(1L);
+        studentId = studentService.findAllStudents().get(0).getId();
+        var response = studentService.deleteByIdStudent(studentId);
 
         Assertions.assertTrue(response);
     }
@@ -66,6 +71,9 @@ public class StudentServiceTest {
         Assertions.assertEquals(1, response);
     }
 
-    private final Student student = new Student(1L, "Сидоров", "Сидр", "Сидорович", "sidorov@mail.ru");
+    private final Student student = new Student( "Сидоров", "Сидр", "Сидорович", "sidorov@mail.ru");
+    private final Student studentNew = new Student( "Федоров", "Федор", "Федорович", "fedorov@mail.ru");
+
+    private Long studentId = null;
 
 }

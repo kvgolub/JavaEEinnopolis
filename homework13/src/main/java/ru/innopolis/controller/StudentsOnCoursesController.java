@@ -5,7 +5,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import ru.innopolis.entity.RequestParam;
+import ru.innopolis.entity.RequestRegistrationStudent;
 import ru.innopolis.entity.StudentsOnCourses;
 import ru.innopolis.service.StudentsOnCoursesService;
 
@@ -20,8 +20,8 @@ public class StudentsOnCoursesController {
     private final StudentsOnCoursesService studentsOnCoursesService;
 
     @PostMapping
-    public ResponseEntity<List<StudentsOnCourses>> createStudentsOnCourses(@Valid @RequestBody RequestParam requestParam) {
-        List<StudentsOnCourses> studentsOnCoursesNew = studentsOnCoursesService.createStudentsOnCourses(requestParam.getStudentId(), requestParam.getCourses());
+    public ResponseEntity<List<StudentsOnCourses>> createStudentsOnCourses(@Valid @RequestBody RequestRegistrationStudent requestRegistrationStudent) {
+        List<StudentsOnCourses> studentsOnCoursesNew = studentsOnCoursesService.createStudentsOnCourses(requestRegistrationStudent.getStudentId(), requestRegistrationStudent.getCourses());
 
         if (!studentsOnCoursesNew.isEmpty()) {
             return ResponseEntity.status(HttpStatus.CREATED).body(studentsOnCoursesNew);

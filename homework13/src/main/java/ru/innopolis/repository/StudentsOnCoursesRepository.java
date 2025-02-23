@@ -9,7 +9,7 @@ import java.util.List;
 @Repository
 public interface StudentsOnCoursesRepository {
 
-    StudentsOnCourses createStudentsOnCourses(Long id, Long studentId, Long courseId);
+    StudentsOnCourses createStudentsOnCourses(StudentsOnCourses studentsOnCourses);
     List<StudentsOnCourses> findByIdStudentsOnCourses(Long id);
 
 }

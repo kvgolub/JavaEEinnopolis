@@ -18,26 +18,19 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public boolean createStudent(Student student) {
-        List<Student> getStudent = studentRepository.findByIdStudent(student.getId());
-
-        if (getStudent.isEmpty()) {
-            return studentRepository.createStudent(student) == 1;
-        } else {
-            return false;
-        }
+    public Student createStudent(Student student) {
+        return studentRepository.createStudent(student);
     }
 
     @Override
     public Student findByIdStudent(Long id) {
-        List<Student> getStudent = studentRepository.findByIdStudent(id);
+        try {
+            Student getStudent = studentRepository.findByIdStudent(id);
 
-        if (!getStudent.isEmpty()) {
-            return studentRepository.findByIdStudent(id).get(0);
-        } else {
+            return studentRepository.findByIdStudent(getStudent.getId());
+        } catch (Exception e) {
             return null;
         }
-
     }
 
     @Override
@@ -46,32 +39,29 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public boolean updateStudent(Long id, Student student) {
-        List<Student> getStudent = studentRepository.findByIdStudent(id);
+    public Student updateStudent(Long id, Student student) {
+        try {
+            Student studentUpdate = studentRepository.findByIdStudent(id);
+            studentUpdate.setSurname(student.getSurname());
+            studentUpdate.setName(student.getName());
+            studentUpdate.setPatronymic(student.getPatronymic());
+            studentUpdate.setEmail(student.getEmail());
 
-        if (!getStudent.isEmpty()) {
-            Student studentNew = getStudent.get(0);
-            studentNew.setSurname(student.getSurname());
-            studentNew.setName(student.getName());
-            studentNew.setPatronymic(student.getPatronymic());
-            studentNew.setEmail(student.getEmail());
-
-            return studentRepository.updateStudent(studentNew) == 1;
-        } else {
-            return false;
+            return studentRepository.updateStudent(studentUpdate);
+        } catch (Exception e) {
+            return null;
         }
     }
 
     @Override
     public boolean deleteByIdStudent(Long id) {
-        List<Student> getStudent = studentRepository.findByIdStudent(id);
+        try {
+            Student getStudent = studentRepository.findByIdStudent(id);
 
-        if (!getStudent.isEmpty()) {
-            return studentRepository.deleteByIdStudent(id) == 1;
-        } else {
+            return studentRepository.deleteByIdStudent(getStudent.getId()) == 1;
+        } catch (Exception e) {
             return false;
         }
-
     }
 
     @Override

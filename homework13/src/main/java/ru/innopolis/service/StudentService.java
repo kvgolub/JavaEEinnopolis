@@ -9,10 +9,10 @@ import java.util.List;
 @Service
 public interface StudentService {
 
-    boolean createStudent(Student student);
+    Student createStudent(Student student);
     Student findByIdStudent(Long id);
     List<Student> findAllStudents();
-    boolean updateStudent(Long id, Student student);
+    Student updateStudent(Long id, Student student);
     boolean deleteByIdStudent(Long id);
     int deleteAllStudents();
 

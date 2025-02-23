@@ -1,6 +1,6 @@
 --Создание таблицы Студент
 CREATE TABLE IF NOT EXISTS student (
-	id BIGINT PRIMARY KEY,
+	id BIGSERIAL PRIMARY KEY,
 	surname VARCHAR(50),
 	name VARCHAR(50),
 	patronymic VARCHAR(50),
@@ -10,14 +10,14 @@ CREATE TABLE IF NOT EXISTS student (
 
 --Создание таблицы Курс
 CREATE TABLE IF NOT EXISTS course (
-	id BIGINT PRIMARY KEY,
+	id BIGSERIAL PRIMARY KEY,
 	name VARCHAR(50)
 );
 
 
 --Создание соединительной таблицы Студенты - Курсы
 CREATE TABLE IF NOT EXISTS studentsOnCourses (
-	id BIGINT PRIMARY KEY,
+	id BIGSERIAL PRIMARY KEY,
 	studentId BIGINT,
 	courseId BIGINT
 );
