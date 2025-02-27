@@ -12,7 +12,7 @@ import java.util.List;
 @Getter
 @Setter
 @ToString
-public class RequestParam {
+public class RequestRegistrationStudent {
 
     @NotNull(message = "ID студента не может быть NULL")
     Long studentId;

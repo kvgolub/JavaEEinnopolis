@@ -19,8 +19,9 @@ public class StudentRepositoryImpl implements StudentRepository {
 
 
     private static final String CREATE = """
-                INSERT INTO student (id, surname, name, patronymic, email)
-                VALUES (:id, :surname, :name, :patronymic, :email)
+                INSERT INTO student (surname, name, patronymic, email)
+                VALUES (:surname, :name, :patronymic, :email)
+                RETURNING *
             """;
     private static final String FIND_BY_ID = """
                 SELECT
@@ -40,6 +41,7 @@ public class StudentRepositoryImpl implements StudentRepository {
                     patronymic = :patronymic,
                     email = :email
                 WHERE id = :id
+                RETURNING *
             """;
     private static final String DELETE_BY_ID = """
                 DELETE FROM student
@@ -51,15 +53,15 @@ public class StudentRepositoryImpl implements StudentRepository {
 
 
     @Override
-    public int createStudent(Student student) {
+    public Student createStudent(Student student) {
         SqlParameterSource namedParameterStudent = new BeanPropertySqlParameterSource(student);
-        return namedParameterJdbcTemplate.update(CREATE, namedParameterStudent);
+        return namedParameterJdbcTemplate.queryForObject(CREATE, namedParameterStudent, studentRowMapper);
     }
 
     @Override
-    public List<Student> findByIdStudent(Long id) {
+    public Student findByIdStudent(Long id) {
         SqlParameterSource namedParameterId = new MapSqlParameterSource("id", id);
-        return namedParameterJdbcTemplate.query(FIND_BY_ID, namedParameterId, studentRowMapper);
+        return namedParameterJdbcTemplate.queryForObject(FIND_BY_ID, namedParameterId, studentRowMapper);
     }
 
     @Override
@@ -68,9 +70,9 @@ public class StudentRepositoryImpl implements StudentRepository {
     }
 
     @Override
-    public int updateStudent(Student student) {
+    public Student updateStudent(Student student) {
         SqlParameterSource namedParameterStudent = new BeanPropertySqlParameterSource(student);
-        return namedParameterJdbcTemplate.update(UPDATE, namedParameterStudent);
+        return namedParameterJdbcTemplate.queryForObject(UPDATE, namedParameterStudent, studentRowMapper);
     }
 
     @Override
