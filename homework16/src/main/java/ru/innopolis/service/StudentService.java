@@ -16,6 +16,6 @@ public interface StudentService {
     boolean deleteByIdStudent(Long id);
     int deleteAllStudents();
 
-    List<StudentResponse> getStudentOver30yearsOld(Integer age);
+    List<StudentResponse> getStudentCertainAge(Integer age);
 
 }

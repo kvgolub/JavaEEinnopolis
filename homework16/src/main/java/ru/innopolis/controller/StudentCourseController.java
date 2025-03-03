@@ -15,7 +15,7 @@ public interface StudentCourseController {
     @GetMapping("/{id}")
     ResponseEntity<AllStudentsOneCourseResponse> findAllStudentsOneCourse(@Valid @PathVariable Long id);
 
-    @GetMapping("/over30yo")
-    ResponseEntity<Over30yoAllStudentsOneCourseResponse> getOver30yoAllStudentsOneCourse(@Valid @RequestParam(name = "id") Long id, @Valid @RequestParam(name = "age") Integer age);
+    @GetMapping("/age_more_than")
+    ResponseEntity<AllStudentsCertainAgeOneCourseResponse> getAllStudentsCertainAgeOneCourse(@Valid @RequestParam(name = "id") Long id, @Valid @RequestParam(name = "age") Integer age);
 
 }
