@@ -39,11 +39,11 @@ public class StudentCourseControllerImpl implements StudentCourseController {
     }
 
     @Override
-    public ResponseEntity<Over30yoAllStudentsOneCourseResponse> getOver30yoAllStudentsOneCourse(Long id, Integer age) {
-        Over30yoAllStudentsOneCourseResponse over30yoAllStudentsOneCourseResponse = studentCourseService.getOver30yoAllStudentsOneCourse(id, age);
+    public ResponseEntity<AllStudentsCertainAgeOneCourseResponse> getAllStudentsCertainAgeOneCourse(Long id, Integer age) {
+        AllStudentsCertainAgeOneCourseResponse allStudentsCertainAgeOneCourseResponse = studentCourseService.getAllStudentsCertainAgeOneCourse(id, age);
 
-        if (over30yoAllStudentsOneCourseResponse != null) {
-            return ResponseEntity.ok().body(over30yoAllStudentsOneCourseResponse);
+        if (allStudentsCertainAgeOneCourseResponse != null) {
+            return ResponseEntity.ok().body(allStudentsCertainAgeOneCourseResponse);
         } else {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
         }

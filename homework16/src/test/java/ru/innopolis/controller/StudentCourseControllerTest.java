@@ -10,10 +10,10 @@ import org.springframework.test.web.servlet.MockMvc;
 import ru.innopolis.controller.impl.StudentCourseControllerImpl;
 import ru.innopolis.dto.course.CourseResponse;
 import ru.innopolis.dto.student.StudentResponse;
+import ru.innopolis.dto.studentCourse.AllStudentsCertainAgeOneCourseResponse;
 import ru.innopolis.dto.studentCourse.AllStudentsOneCourseResponse;
 import ru.innopolis.dto.studentCourse.OneStudentManyCoursesRequest;
 import ru.innopolis.dto.studentCourse.OneStudentManyCoursesResponse;
-import ru.innopolis.dto.studentCourse.Over30yoAllStudentsOneCourseResponse;
 import ru.innopolis.service.impl.StudentCourseServiceImpl;
 
 import java.text.ParseException;
@@ -59,10 +59,10 @@ public class StudentCourseControllerTest {
     }
 
     @Test
-    void getOver30yoAllStudentsOneCourseControllerTest() throws Exception {
-        Mockito.when(studentCourseService.getOver30yoAllStudentsOneCourse(Mockito.any(Long.class), Mockito.any(Integer.class))).thenReturn(over30yoAllStudentsOneCourseResponse);
+    void getAllStudentsCertainAgeOneCourseControllerTest() throws Exception {
+        Mockito.when(studentCourseService.getAllStudentsCertainAgeOneCourse(Mockito.any(Long.class), Mockito.any(Integer.class))).thenReturn(allStudentsCertainAgeOneCourseResponse);
 
-        mvc.perform(get("/api/v1/students_on_courses/over30yo")
+        mvc.perform(get("/api/v1/students_on_courses/age_more_than")
                         .param("id", "1")
                         .param("age", "30")
                 )
@@ -106,8 +106,8 @@ public class StudentCourseControllerTest {
             )
     );
 
-    // over30yo
-    private final Over30yoAllStudentsOneCourseResponse over30yoAllStudentsOneCourseResponse = new Over30yoAllStudentsOneCourseResponse(
+    // certainAge
+    private final AllStudentsCertainAgeOneCourseResponse allStudentsCertainAgeOneCourseResponse = new AllStudentsCertainAgeOneCourseResponse(
             1L,
             "Программирование на языке JAVA",
             sdf.parse("2024-03-01T10:00:00.000+02:00"),

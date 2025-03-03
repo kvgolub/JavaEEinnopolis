@@ -32,7 +32,7 @@ public interface StudentController {
     ResponseEntity<Integer> deleteAllStudents();
 
 
-    @GetMapping("/over30yo/{age}")
-    ResponseEntity<List<StudentResponse>> getStudentOver30yearsOld(@Valid @PathVariable("age") Integer age);
+    @GetMapping("/age_more_than/{age}")
+    ResponseEntity<List<StudentResponse>> getStudentCertainAge(@Valid @PathVariable("age") Integer age);
 
 }

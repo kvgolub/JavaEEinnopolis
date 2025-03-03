@@ -8,6 +8,6 @@ public interface StudentCourseService {
     OneStudentManyCoursesResponse createOneStudentManyCourses(OneStudentManyCoursesRequest oneStudentManyCoursesRequest);
     AllStudentsOneCourseResponse findAllStudentsOneCourse(Long id);
 
-    Over30yoAllStudentsOneCourseResponse getOver30yoAllStudentsOneCourse(Long id, Integer age);
+    AllStudentsCertainAgeOneCourseResponse getAllStudentsCertainAgeOneCourse(Long id, Integer age);
 
 }

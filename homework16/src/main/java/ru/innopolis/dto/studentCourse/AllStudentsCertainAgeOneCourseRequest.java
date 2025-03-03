@@ -14,7 +14,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class Over30yoAllStudentsOneCourseRequest {
+public class AllStudentsCertainAgeOneCourseRequest {
 
     @NotNull(message = "ID курса не может быть NULL")
     @Positive(message = "ID курса должно быть положительным числом")

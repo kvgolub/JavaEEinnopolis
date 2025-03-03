@@ -88,10 +88,10 @@ public class StudentControllerTest {
     }
 
     @Test
-    void getStudentOver30yearsOldControllerTest() throws Exception {
-        Mockito.when(studentService.getStudentOver30yearsOld(Mockito.any(Integer.class))).thenReturn(studentsOver30yearsOld);
+    void getStudentCertainAgeControllerTest() throws Exception {
+        Mockito.when(studentService.getStudentCertainAge(Mockito.any(Integer.class))).thenReturn(studentsCertainAge);
 
-        mvc.perform(get("/api/v1/student/over30yo/30"))
+        mvc.perform(get("/api/v1/student/age_more_than/30"))
                 .andExpect(status().isOk());
     }
 
@@ -149,8 +149,8 @@ public class StudentControllerTest {
                             }
                         """;
 
-    // over30yo
-    private final List<StudentResponse> studentsOver30yearsOld = List.of(
+    // certainAge
+    private final List<StudentResponse> studentsCertainAge = List.of(
             new StudentResponse(1L, "Иванов", "Иван", "Иванович", 35, "ivanov@mail.ru"),
             new StudentResponse(3L, "Сидоров", "Сидр", "Сидорович", 40,"sidorov@mail.ru")
     );

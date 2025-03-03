@@ -113,24 +113,24 @@ public class StudentCourseServiceImpl implements StudentCourseService {
     }
 
     @Override
-    public Over30yoAllStudentsOneCourseResponse getOver30yoAllStudentsOneCourse(Long id, Integer age) {
+    public AllStudentsCertainAgeOneCourseResponse getAllStudentsCertainAgeOneCourse(Long id, Integer age) {
         try {
-            List<Student> getStudentOver30yearsOld = studentRepository.queryStudentsByAgeGreaterThanEqual(age);
+            List<Student> getStudentCertainAge = studentRepository.queryStudentsByAgeGreaterThanEqual(age);
             AllStudentsOneCourseResponse allStudentsOneCourseResponse = findAllStudentsOneCourse(id);
 
-            List<StudentResponse> studentOver30yo = new ArrayList<>();
+            List<StudentResponse> studentCertainAge = new ArrayList<>();
             allStudentsOneCourseResponse.getStudents().forEach(studentResponse -> {
-                if(getStudentOver30yearsOld.stream().anyMatch(student -> Objects.equals(student.getId(), studentResponse.getId()))) {
-                    studentOver30yo.add(studentResponse);
+                if(getStudentCertainAge.stream().anyMatch(student -> Objects.equals(student.getId(), studentResponse.getId()))) {
+                    studentCertainAge.add(studentResponse);
                 }
             });
 
-            return new Over30yoAllStudentsOneCourseResponse(
+            return new AllStudentsCertainAgeOneCourseResponse(
                     allStudentsOneCourseResponse.getId(),
                     allStudentsOneCourseResponse.getName(),
                     allStudentsOneCourseResponse.getDate(),
                     allStudentsOneCourseResponse.getActive(),
-                    studentOver30yo
+                    studentCertainAge
             );
         } catch (Exception e) {
             return null;
