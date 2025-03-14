@@ -73,11 +73,11 @@ public class StudentServiceTest {
     }
 
     @Test
-    void getStudentOver30yearsOldServiceTest() {
-        Mockito.when(studentRepository.queryStudentsByAgeGreaterThanEqual(Mockito.any(Integer.class))).thenReturn(studentOver30yearsOld);
-        var response = studentService.getStudentOver30yearsOld(30);
+    void getStudentCertainAgeServiceTest() {
+        Mockito.when(studentRepository.queryStudentsByAgeGreaterThanEqual(Mockito.any(Integer.class))).thenReturn(studentCertainAge);
+        var response = studentService.getStudentCertainAge(30);
 
-        Assertions.assertEquals(Optional.of(studentOver30yearsOldResponse).orElseThrow().size(), response.size());
+        Assertions.assertEquals(Optional.of(studentCertainAgeResponse).orElseThrow().size(), response.size());
     }
 
 
@@ -104,12 +104,12 @@ public class StudentServiceTest {
     private final StudentRequest studentRequestNew = new StudentRequest("Федоров", "Федор", "Федорович", 20, "fedorov@mail.ru");
     private final StudentResponse studentResponseNew = new StudentResponse(1L, "Федоров", "Федор", "Федорович", 20,"fedorov@mail.ru");
 
-    // over30yo
-    private final List<Student> studentOver30yearsOld = List.of(
+    // certainAge
+    private final List<Student> studentCertainAge = List.of(
             new Student(1L, "Иванов", "Иван", "Иванович", 35,"ivanov@mail.ru"),
             new Student(3L, "Сидоров", "Сидр", "Сидорович", 40,"sidorov@mail.ru")
     );
-    private final List<StudentResponse> studentOver30yearsOldResponse = List.of(
+    private final List<StudentResponse> studentCertainAgeResponse = List.of(
             new StudentResponse(1L, "Иванов", "Иван", "Иванович", 35,"ivanov@mail.ru"),
             new StudentResponse(3L, "Сидоров", "Сидр", "Сидорович", 40,"sidorov@mail.ru")
     );

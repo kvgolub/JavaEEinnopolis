@@ -7,10 +7,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import ru.innopolis.dto.course.CourseResponse;
 import ru.innopolis.dto.student.StudentResponse;
+import ru.innopolis.dto.studentCourse.AllStudentsCertainAgeOneCourseResponse;
 import ru.innopolis.dto.studentCourse.AllStudentsOneCourseResponse;
 import ru.innopolis.dto.studentCourse.OneStudentManyCoursesRequest;
 import ru.innopolis.dto.studentCourse.OneStudentManyCoursesResponse;
-import ru.innopolis.dto.studentCourse.Over30yoAllStudentsOneCourseResponse;
 import ru.innopolis.entity.Course;
 import ru.innopolis.entity.Student;
 import ru.innopolis.entity.StudentCourse;
@@ -70,16 +70,16 @@ public class StudentCourseServiceTest {
     }
 
     @Test
-    void getOver30yoAllStudentsOneCourseServiceTest() {
-        Mockito.when(studentRepository.queryStudentsByAgeGreaterThanEqual(Mockito.any(Integer.class))).thenReturn(studentOver30yearsOld);
+    void getAllStudentsCertainAgeOneCourseServiceTest() {
+        Mockito.when(studentRepository.queryStudentsByAgeGreaterThanEqual(Mockito.any(Integer.class))).thenReturn(studentCertainAge);
         Mockito.when(studentRepository.findById(Mockito.any(Long.class))).thenReturn(Optional.of(student));
         Mockito.when(courseRepository.findById(Mockito.any(Long.class))).thenReturn(Optional.of(course));
         Mockito.when(studentCourseRepository.findStudentCourseByCourseId(Mockito.any(Long.class))).thenReturn(studentCourseList);
 
-        var response = studentCourseService.getOver30yoAllStudentsOneCourse(1L, 30);
+        var response = studentCourseService.getAllStudentsCertainAgeOneCourse(1L, 30);
 
-        Assertions.assertEquals(over30yoAllStudentsOneCourseResponse.getName(), response.getName());
-        Assertions.assertEquals(over30yoAllStudentsOneCourseResponse.getStudents().size(), response.getStudents().size());
+        Assertions.assertEquals(allStudentsCertainAgeOneCourseResponse.getName(), response.getName());
+        Assertions.assertEquals(allStudentsCertainAgeOneCourseResponse.getStudents().size(), response.getStudents().size());
     }
 
 
@@ -120,12 +120,12 @@ public class StudentCourseServiceTest {
             )
     );
 
-    // over30yo
-    private final List<Student> studentOver30yearsOld = List.of(
+    // certainAge
+    private final List<Student> studentCertainAge = List.of(
             new Student(1L, "Иванов", "Иван", "Иванович", 35,"ivanov@mail.ru"),
             new Student(3L, "Сидоров", "Сидр", "Сидорович", 40,"sidorov@mail.ru")
     );
-    private final Over30yoAllStudentsOneCourseResponse over30yoAllStudentsOneCourseResponse = new Over30yoAllStudentsOneCourseResponse(
+    private final AllStudentsCertainAgeOneCourseResponse allStudentsCertainAgeOneCourseResponse = new AllStudentsCertainAgeOneCourseResponse(
             1L,
             "Программирование на языке JAVA",
             sdf.parse("2024-03-01T10:00:00.000+02:00"),

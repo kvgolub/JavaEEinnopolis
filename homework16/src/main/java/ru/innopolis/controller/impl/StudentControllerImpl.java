@@ -80,8 +80,8 @@ public class StudentControllerImpl implements StudentController {
 
 
     @Override
-    public ResponseEntity<List<StudentResponse>> getStudentOver30yearsOld(Integer age) {
-        List<StudentResponse> studentsResponses = studentService.getStudentOver30yearsOld(age);
+    public ResponseEntity<List<StudentResponse>> getStudentCertainAge(Integer age) {
+        List<StudentResponse> studentsResponses = studentService.getStudentCertainAge(age);
 
         return !studentsResponses.isEmpty()
                 ? ResponseEntity.ok().body(studentsResponses)

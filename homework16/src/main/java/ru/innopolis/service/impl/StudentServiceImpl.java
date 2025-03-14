@@ -132,7 +132,7 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public List<StudentResponse> getStudentOver30yearsOld(Integer age) {
+    public List<StudentResponse> getStudentCertainAge(Integer age) {
         List<Student> studentFromDb = studentRepository.queryStudentsByAgeGreaterThanEqual(age);
         List<StudentResponse> response = new ArrayList<>();
         studentFromDb.forEach(student -> response.add(

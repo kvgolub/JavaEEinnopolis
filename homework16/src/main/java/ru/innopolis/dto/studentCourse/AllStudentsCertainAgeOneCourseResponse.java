@@ -14,7 +14,7 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Setter
-public class Over30yoAllStudentsOneCourseResponse {
+public class AllStudentsCertainAgeOneCourseResponse {
 
     private Long id;
     private String name;
