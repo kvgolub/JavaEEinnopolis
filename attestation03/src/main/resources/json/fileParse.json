@@ -1,0 +1,16 @@
+[
+  {
+    "type": 1,
+    "model": "Автобус-100",
+    "regNumber": "A001AA",
+    "passengerCapacity": 100,
+    "price": 20000000.00
+  },
+  {
+    "type": 2,
+    "model": "Автобус-200",
+    "regNumber": "E002EE",
+    "passengerCapacity": 200,
+    "price": 40000000.00
+  }
+]
