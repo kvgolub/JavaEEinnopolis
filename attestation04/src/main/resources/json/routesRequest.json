@@ -1,0 +1,16 @@
+[
+  {
+    "number": "2000Э",
+    "startStation": 2,
+    "endStation": 8,
+    "quantityStation": 22,
+    "passengerFlow": 18050
+  },
+  {
+    "number": "3000С",
+    "startStation": 4,
+    "endStation": 3,
+    "quantityStation": 12,
+    "passengerFlow": 640
+  }
+]
